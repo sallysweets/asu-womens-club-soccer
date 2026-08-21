@@ -1,1 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASU Women's Club Soccer</title>
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* CSS Variables for ASU Colors */
+        :root {
+            --maroon: #8C1D40;
+            --gold: #FFC627;
+            --dark: #1a1a1a;
+            --light: #fdfdfd;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--maroon);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        nav h2 {
+            color: var(--gold);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(140, 29, 64, 0.8), rgba(26, 26, 26, 1));
+            padding: 2rem;
+        }
+
+        .hero img {
+            width: 250px;
+            margin-bottom: 2rem;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 198, 39, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .accolades {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .badge {
+            background-color: var(--gold);
+            color: var(--maroon);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2.section-title {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--maroon);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .text-center { text-align: center; }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 198, 39, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .card h3 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card p { color: #ccc; }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--maroon);
+        }
+
+        .btn-maroon {
+            background-color: var(--maroon);
+            color: var(--light);
+            border: 1px solid var(--gold);
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--maroon);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 4px solid var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>ASU WCS</h2>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="logo.png" alt="ASU Women's Club Soccer Logo" data-aos="zoom-in" data-aos-duration="1000">
+        <h1 data-aos="fade-up" data-aos-delay="200">Women's Club Soccer</h1>
+        <p data-aos="fade-up" data-aos-delay="400" style="font-size: 1.5rem;">Arizona State University</p>
+        
+        <div class="accolades" data-aos="fade-up" data-aos-delay="600">
+            <div class="badge">🏆 2023 Regional Champions</div>
+            <div class="badge">🥇 2024 Aztec Cup Champions</div>
+            <div class="badge">🔥 Ranked #8 in the Nation</div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">About Us</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                We are the official Women's Club Soccer Team at Arizona State University. We compete at a high level nationally while wearing Gold and Maroon with pride. Whether we are training on the turf or traveling for tournaments, our club is built on dedication, teamwork, and a passion for the beautiful game. Go Devils!
+            </p>
+        </div>
+    </section>
+
+    <!-- Exec Board Section -->
+    <section id="board">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">Executive Board</h2>
+        </div>
+        <div class="grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <h3>[Name]</h3>
+                <p>President</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <h3>[Name]</h3>
+                <p>Vice President</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <h3>[Name]</h3>
+                <p>Treasurer</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <h3>[Name]</h3>
+                <p>Social Media Manager</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roster Section -->
+    <section id="roster">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">Player Roster</h2>
+        </div>
+        <div class="grid">
+            <!-- Example Player Card -->
+            <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                <h3>Sally Al Khayyat</h3>
+                <p>Central Attacking Midfielder</p>
+            </div>
+             <!-- Duplicate the card div above for more players -->
+        </div>
+    </section>
+
+    <!-- Connect / GroupMe Section -->
+    <section id="connect">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">Connect With Us</h2>
+            <p>Follow our journey on social media or join the team communication channels.</p>
+            
+            <div class="btn-container">
+                <a href="https://instagram.com/womensclubsoccer_asu" target="_blank" class="btn btn-gold">Instagram</a>
+                <a href="https://linktr.ee/kayleegerardot06" target="_blank" class="btn btn-gold">Linktree</a>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1rem; color: var(--gold);">Team Communications</h3>
+            <div class="btn-container">
+                <!-- Replace the '#' with actual GroupMe invite links -->
+                <a href="#" class="btn btn-gold">Join Gold Team GroupMe</a>
+                <a href="#" class="btn btn-maroon">Join Maroon Team GroupMe</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ASU Women's Club Soccer. All rights reserved.</p>
+    </footer>
+
+    <!-- AOS Animation Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize the smooth scroll animations
+        AOS.init({
+            duration: 800,
+            once: false,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
