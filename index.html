@@ -10,8 +10,9 @@
         :root {
             --maroon: #8C1D40;
             --gold: #FFC627;
-            --dark: #121212;
-            --card-bg: #1e1e1e;
+            --bright-gold: #FFD64D;
+            --dark: #0a0a0a; /* Deeper matte black for aggressive look */
+            --card-bg: #151515;
             --light: #fdfdfd;
         }
 
@@ -38,13 +39,15 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            border-bottom: 2px solid var(--bright-gold);
         }
 
         nav h2 {
-            color: var(--gold);
-            font-weight: 800;
-            letter-spacing: 1px;
+            color: var(--bright-gold);
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         /* Hero Section */
@@ -55,28 +58,46 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(140, 29, 64, 0.85), rgba(18, 18, 18, 1));
+            background: linear-gradient(135deg, rgba(140, 29, 64, 0.9), rgba(10, 10, 10, 1));
             padding: 2rem;
+            position: relative;
+        }
+
+        /* CSS TRICK TO CLEAN UP YOUR SCREENSHOT LOGO */
+        .hero .logo-container {
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--bright-gold);
+            box-shadow: 0 0 40px rgba(255, 214, 77, 0.5);
+            background-color: #fff;
         }
 
         .hero img {
-            width: 220px;
-            margin-bottom: 1.5rem;
-            border-radius: 50%;
-            box-shadow: 0 0 35px rgba(255, 198, 39, 0.45);
+            width: 105%; /* Zooms in slightly to cut off the IG rings */
+            height: 105%;
+            object-fit: cover;
+            object-position: center;
+            margin: -2.5%; /* Re-centers the zoomed image */
         }
 
         .hero h1 {
-            font-size: 3.2rem;
-            color: var(--gold);
+            font-size: 3.5rem;
+            color: var(--bright-gold);
             margin-bottom: 0.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #eee;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         .accolades {
@@ -88,158 +109,187 @@
         }
 
         .badge {
-            background-color: var(--gold);
-            color: var(--maroon);
+            background-color: var(--bright-gold);
+            color: var(--dark);
             padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-weight: bold;
+            border-radius: 4px; /* Sharper edges */
+            font-weight: 900;
             font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            box-shadow: 4px 4px 0px var(--maroon); /* Aggressive shadow */
+            text-transform: uppercase;
+            transform: skewX(-5deg); /* Speedy look */
         }
 
-        /* Sections */
+        /* Dynamic Diagonal Separators for Sections */
         section {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         h2.section-title {
-            color: var(--gold);
-            font-size: 2.3rem;
-            margin-bottom: 2.5rem;
+            color: var(--bright-gold);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
+            letter-spacing: 2px;
+            font-weight: 900;
             display: inline-block;
         }
 
         h2.section-title::after {
             content: '';
             display: block;
-            width: 60%;
-            height: 3px;
+            width: 100%;
+            height: 4px;
             background-color: var(--maroon);
-            margin: 8px auto 0;
+            margin: 10px auto 0;
+            transform: skewX(-15deg);
         }
 
         .text-center { text-align: center; }
 
-        /* Tryouts Banner */
+        /* Tryouts Banner - High Octane */
+        .tryout-wrapper {
+            padding: 2rem 0;
+        }
+        
         .tryout-banner {
-            background: linear-gradient(135deg, var(--maroon), #4a0d20);
-            border: 2px solid var(--gold);
-            border-radius: 16px;
-            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #a62a50, #8C1D40 70%, #6f1632);
+            border: 3px solid var(--bright-gold);
+            border-radius: 4px;
+            padding: 3.5rem 2rem;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transform: skewY(-2deg); /* Dynamic angle */
+            box-shadow: 12px 12px 0px rgba(255, 214, 77, 0.15);
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .tryout-content {
+            transform: skewY(2deg); /* Un-skew the text so it's readable */
         }
 
         .tryout-banner h3 {
-            font-size: 2.2rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: var(--bright-gold);
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
+            font-weight: 900;
         }
 
         .tryout-banner p {
-            font-size: 1.15rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
             color: #fff;
+            letter-spacing: 0.5px;
         }
 
         /* Grid & Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .card {
             background-color: var(--card-bg);
-            border: 1px solid rgba(255, 198, 39, 0.25);
-            padding: 2rem;
-            border-radius: 14px;
+            border-left: 4px solid var(--maroon);
+            border-bottom: 1px solid rgba(255, 214, 77, 0.2);
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 20px rgba(255, 198, 39, 0.15);
+            transform: translateY(-10px);
+            border-left: 4px solid var(--bright-gold);
+            background-color: #1a1a1a;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
         .card .role {
-            color: var(--gold);
+            color: var(--bright-gold);
             font-size: 1.1rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
         }
 
         .card h3 {
             color: #fff;
-            margin-bottom: 0.8rem;
-            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-weight: bold;
         }
 
         .card .phone {
-            color: #ccc;
+            color: #aaa;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             display: inline-block;
             transition: color 0.2s ease;
         }
 
         .card .phone:hover {
-            color: var(--gold);
+            color: var(--bright-gold);
         }
 
         /* Buttons */
         .btn-container {
             display: flex;
-            gap: 1.2rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
 
         .btn {
             text-decoration: none;
-            padding: 0.9rem 1.8rem;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
             transition: all 0.3s ease;
             display: inline-block;
+            transform: skewX(-5deg);
         }
 
         .btn-gold {
-            background-color: var(--gold);
-            color: var(--maroon);
+            background-color: var(--bright-gold);
+            color: var(--dark);
+            box-shadow: 4px 4px 0px var(--maroon);
         }
 
         .btn-maroon {
             background-color: var(--maroon);
             color: var(--light);
-            border: 1px solid var(--gold);
+            border: 2px solid var(--bright-gold);
+            box-shadow: 4px 4px 0px rgba(255, 214, 77, 0.3);
         }
 
         .btn:hover {
-            opacity: 0.9;
-            transform: scale(1.04);
+            transform: skewX(-5deg) translateY(-3px);
+            box-shadow: 6px 6px 0px var(--maroon);
+        }
+
+        .btn-maroon:hover {
+            box-shadow: 6px 6px 0px rgba(255, 214, 77, 0.5);
         }
 
         /* Footer */
         footer {
             background-color: var(--maroon);
             text-align: center;
-            padding: 2.5rem 1rem;
-            margin-top: 4rem;
-            border-top: 4px solid var(--gold);
+            padding: 3rem 1rem;
+            margin-top: 5rem;
+            border-top: 5px solid var(--bright-gold);
+            font-weight: bold;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -251,27 +301,33 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <img src="logo.png" alt="ASU Women's Club Soccer Logo" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="logo-container" data-aos="zoom-in" data-aos-duration="1000">
+            <img src="logo.png" alt="ASU Women's Club Soccer Logo">
+        </div>
         <h1 data-aos="fade-up" data-aos-delay="150">Women's Club Soccer</h1>
         <p data-aos="fade-up" data-aos-delay="300">Arizona State University</p>
         
         <div class="accolades" data-aos="fade-up" data-aos-delay="450">
-            <div class="badge">🏆 2023 Regional Champions</div>
-            <div class="badge">🥇 2024 Aztec Cup Champions</div>
-            <div class="badge">🔥 Ranked #8 in the Nation</div>
+            <div class="badge">🏆 2023 Regional Champs</div>
+            <div class="badge">🥇 2024 Aztec Cup Champs</div>
+            <div class="badge">🔥 Ranked #8 in Nation</div>
         </div>
     </header>
 
     <!-- Tryouts Announcement -->
     <section id="tryouts">
-        <div class="tryout-banner" data-aos="zoom-in">
-            <h3>⚽ Fall 2026 Tryouts</h3>
-            <p><strong>Dates:</strong> Wednesday, Aug 25 – Friday, Aug 27</p>
-            <p><strong>Time:</strong> Aug 25: 8–10 PM | Aug 26 & 27: 9–11 PM</p>
-            <p><strong>Location:</strong> 510 S Dorsey Lane (Turf Field)</p>
-            <p style="font-size: 0.95rem; color: #ffd666; margin-top: 0.5rem;">*Please arrive 15 minutes early for check-in</p>
-            <div class="btn-container">
-                <a href="https://linktr.ee/kayleegerardot06" target="_blank" class="btn btn-gold">Fill Out Tryout Form</a>
+        <div class="tryout-wrapper" data-aos="zoom-in">
+            <div class="tryout-banner">
+                <div class="tryout-content">
+                    <h3>⚽ Fall 2026 Tryouts</h3>
+                    <p><strong>DATES:</strong> Wednesday, Aug 25 – Friday, Aug 27</p>
+                    <p><strong>TIME:</strong> Aug 25: 8–10 PM | Aug 26 & 27: 9–11 PM</p>
+                    <p><strong>LOCATION:</strong> 510 S Dorsey Lane (Turf Field)</p>
+                    <p style="font-size: 1rem; color: var(--bright-gold); margin-top: 1rem; font-weight: bold;">*PLEASE ARRIVE 15 MIN EARLY FOR CHECK-IN</p>
+                    <div class="btn-container">
+                        <a href="https://linktr.ee/kayleegerardot06" target="_blank" class="btn btn-gold">Fill Out Tryout Form</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -280,7 +336,7 @@
     <section id="about">
         <div class="text-center" data-aos="fade-up">
             <h2 class="section-title">About Us</h2>
-            <p style="font-size: 1.15rem; line-height: 1.8; max-width: 800px; margin: 0 auto; color: #ddd;">
+            <p style="font-size: 1.25rem; line-height: 1.8; max-width: 800px; margin: 0 auto; color: #ddd;">
                 We are the official Women's Club Soccer Team at Arizona State University. Competing nationally and representing Sun Devil athletics with pride, our program brings together competitive spirit, teamwork, and community. Go Devils!
             </p>
         </div>
@@ -328,18 +384,17 @@
     <section id="connect">
         <div class="text-center" data-aos="fade-up">
             <h2 class="section-title">Connect With Us</h2>
-            <p style="color: #ccc;">Follow our season updates or get in touch through our team channels.</p>
+            <p style="color: #ccc; font-size: 1.1rem;">Follow our season updates or get in touch through our team channels.</p>
             
             <div class="btn-container">
-                <a href="https://instagram.com/womensclubsoccer_asu" target="_blank" class="btn btn-gold">Instagram (@womensclubsoccer_asu)</a>
+                <a href="https://instagram.com/womensclubsoccer_asu" target="_blank" class="btn btn-gold">Instagram</a>
                 <a href="https://linktr.ee/kayleegerardot06" target="_blank" class="btn btn-gold">Linktree</a>
             </div>
 
-            <h3 style="margin-top: 3.5rem; margin-bottom: 1rem; color: var(--gold); text-transform: uppercase;">Team Communications</h3>
+            <h3 style="margin-top: 4rem; margin-bottom: 1.5rem; color: var(--bright-gold); text-transform: uppercase; font-weight: 900; font-size: 1.8rem;">Team Communications</h3>
             <div class="btn-container">
-                <!-- Paste the direct GroupMe invite links inside the href quotes -->
-                <a href="#" class="btn btn-gold">Join Gold Team GroupMe</a>
-                <a href="#" class="btn btn-maroon">Join Maroon Team GroupMe</a>
+                <a href="#" class="btn btn-gold">Gold Team GroupMe</a>
+                <a href="#" class="btn btn-maroon">Maroon Team GroupMe</a>
             </div>
         </div>
     </section>
