@@ -70,33 +70,37 @@
             border: none;
         }
 
-        /* Hero Section - Arizona Sunset Pride Gradient */
+        /* Hero Section */
         .hero {
-            height: 90vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Blends Maroon into a deep Desert Sunset Purple */
             background: linear-gradient(135deg, #8C1D40 0%, #5c1b54 50%, #2a081a 100%);
-            padding: 2rem;
+            padding: 4rem 2rem;
             position: relative;
         }
 
-        /* THE FINAL PERFECT LOGO FIX */
+        @keyframes pulse-glow {
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 214, 77, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 70px rgba(255, 214, 77, 0.9); }
+            100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 214, 77, 0.4); }
+        }
+
         .logo-mask {
             width: 260px;
             height: 260px;
             border-radius: 50%;
-            overflow: hidden; /* Forces the circle */
+            overflow: hidden; 
             border: 4px solid var(--bright-gold);
-            box-shadow: 0 0 40px rgba(255, 214, 77, 0.5);
             margin-bottom: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: var(--cream);
+            animation: pulse-glow 3.5s infinite ease-in-out;
         }
 
         .logo-mask img {
@@ -104,7 +108,6 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            /* Increased zoom to 1.25 to completely hide all black edges */
             transform: scale(1.25); 
         }
 
@@ -164,7 +167,6 @@
             display: inline-block;
         }
 
-        /* Keep section titles gold in dark mode */
         body:not(.light-mode) h2.section-title {
             color: var(--bright-gold);
         }
@@ -236,10 +238,11 @@
             box-shadow: 0 12px 25px rgba(0,0,0,0.2);
         }
         
-        /* Spotlight Images inside Cards */
         .spotlight-img {
             width: 100%;
             height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
             border-radius: 4px;
             border: 2px solid var(--bg-color);
             margin-bottom: 1.5rem;
@@ -281,6 +284,41 @@
         .card .phone:hover { color: var(--maroon); font-weight: bold; }
         body:not(.light-mode) .card .phone:hover { color: var(--bright-gold); }
 
+        /* Highlight Reel Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid var(--maroon);
+            background-color: #000;
+            aspect-ratio: 1 / 1;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+            transition: filter 0.4s ease, transform 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--bright-gold);
+            transform: translateY(-5px);
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.08); 
+        }
+
         /* Buttons */
         .btn-container {
             display: flex;
@@ -314,20 +352,49 @@
             background-color: #ffcf40;
         }
 
-        /* Footer */
+        /* High-Visibility Footer */
         footer {
-            background-color: var(--maroon);
-            text-align: center;
-            padding: 3rem 1rem 2rem;
+            background: linear-gradient(135deg, #1a0208 0%, #4a0d1f 50%, #8C1D40 100%);
+            padding: 5rem 2rem;
             margin-top: 5rem;
             border-top: 5px solid var(--bright-gold);
             color: #F8F6F0;
+            text-align: center;
+            box-shadow: inset 0 20px 20px rgba(0,0,0,0.5);
+        }
+
+        .footer-fork-container {
+            background: rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 3px solid var(--bright-gold);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        }
+
+        .footer-fork {
+            height: 160px;
+            width: auto;
+            display: block;
+        }
+
+        footer h2 {
+            color: var(--bright-gold);
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
         }
 
         footer p {
             font-weight: bold;
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            color: var(--cream);
         }
 
         .credits {
@@ -335,6 +402,7 @@
             font-weight: normal;
             opacity: 0.8;
             margin-top: 1.5rem;
+            text-transform: none !important;
         }
     </style>
 </head>
@@ -342,13 +410,12 @@
 
     <nav>
         <h2>ASU Women's Club Soccer</h2>
-        <!-- Theme Toggle Button -->
         <button id="theme-toggle" class="btn btn-gold">Light/Dark Mode</button>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Top Hero Section with Round Sparky Logo -->
     <header class="hero">
-        <div class="logo-mask" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="logo-mask">
             <img src="logo.png" alt="ASU Women's Club Soccer Logo">
         </div>
         <h1 data-aos="fade-up" data-aos-delay="150">Women's Club Soccer</h1>
@@ -357,7 +424,7 @@
         <div class="accolades" data-aos="fade-up" data-aos-delay="450">
             <div class="badge">🏆 2023 Regional Champs</div>
             <div class="badge">🥇 2024 Aztec Cup Champs</div>
-            <div class="badge">🔥 Ranked #8 in Nation</div>
+            <div class="badge">🔥 Top 8 in the Nation</div>
         </div>
     </header>
 
@@ -397,26 +464,31 @@
         </div>
         <div class="grid">
             <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <img src="trinity.jpg" alt="Trinity Romero" class="spotlight-img">
                 <div class="role">President</div>
                 <h3>Trinity Romero</h3>
                 <a href="tel:5056997893" class="phone">📞 (505) 699-7893</a>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <img src="miarosta.png" alt="Mia Rosta" class="spotlight-img">
                 <div class="role">Vice President</div>
                 <h3>Mia Rosta</h3>
                 <a href="tel:6025052365" class="phone">📞 (602) 505-2365</a>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <img src="hannah.jpg" alt="Hannah Thebeau" class="spotlight-img">
                 <div class="role">Finance</div>
                 <h3>Hannah Thebeau</h3>
                 <a href="tel:4194605098" class="phone">📞 (419) 460-5098</a>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <img src="kaylee.jpg" alt="Kaylee Gerardot" class="spotlight-img">
                 <div class="role">PR & Media</div>
                 <h3>Kaylee Gerardot</h3>
                 <a href="tel:2095076493" class="phone">📞 (209) 507-6493</a>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <img src="bree.jpg" alt="Bree Sanderson" class="spotlight-img">
                 <div class="role">Service</div>
                 <h3>Bree Sanderson</h3>
                 <a href="tel:9494624033" class="phone">📞 (949) 462-4033</a>
@@ -465,6 +537,28 @@
         </div>
     </section>
 
+    <!-- Sparky's Highlight Reel -->
+    <section id="highlights">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">Sparky's Highlight Reel</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 3rem;">Moments of Sun Devil pride on and off the pitch. Hover to view.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://placehold.co/600x600/8C1D40/FFC627?text=Highlight+1" alt="Placeholder 1">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://placehold.co/600x600/8C1D40/FFC627?text=Highlight+2" alt="Placeholder 2">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://placehold.co/600x600/8C1D40/FFC627?text=Highlight+3" alt="Placeholder 3">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://placehold.co/600x600/8C1D40/FFC627?text=Highlight+4" alt="Placeholder 4">
+            </div>
+        </div>
+    </section>
+
     <!-- Connect & GroupMe Section -->
     <section id="connect">
         <div class="text-center" data-aos="fade-up">
@@ -484,8 +578,14 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 ASU Women's Club Soccer. All rights reserved.</p>
+        <div class="footer-fork-container">
+            <img src="fork.png" alt="ASU Fork Logo" class="footer-fork">
+        </div>
+        <h2>Fear The Fork.</h2>
+        <p>@womensclubsoccer_asu • Contact The Club</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem; text-transform: none;">&copy; 2026 ASU Women's Club Soccer. All rights reserved.</p>
         <p class="credits">Website designed and built by Sally Al Khayyat</p>
     </footer>
 
