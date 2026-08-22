@@ -11,7 +11,7 @@
             --maroon: #8C1D40;
             --gold: #FFC627;
             --bright-gold: #FFD64D;
-            --dark: #0a0a0a; /* Deeper matte black for aggressive look */
+            --dark: #0a0a0a;
             --card-bg: #151515;
             --light: #fdfdfd;
         }
@@ -63,7 +63,6 @@
             position: relative;
         }
 
-        /* CSS TRICK TO CLEAN UP YOUR SCREENSHOT LOGO */
         .hero .logo-container {
             width: 230px;
             height: 230px;
@@ -75,12 +74,12 @@
             background-color: #fff;
         }
 
-        .hero img {
-            width: 105%; /* Zooms in slightly to cut off the IG rings */
+        .hero img.logo {
+            width: 105%;
             height: 105%;
             object-fit: cover;
             object-position: center;
-            margin: -2.5%; /* Re-centers the zoomed image */
+            margin: -2.5%;
         }
 
         .hero h1 {
@@ -112,12 +111,12 @@
             background-color: var(--bright-gold);
             color: var(--dark);
             padding: 0.8rem 1.5rem;
-            border-radius: 4px; /* Sharper edges */
+            border-radius: 4px;
             font-weight: 900;
             font-size: 1rem;
-            box-shadow: 4px 4px 0px var(--maroon); /* Aggressive shadow */
+            box-shadow: 4px 4px 0px var(--maroon);
             text-transform: uppercase;
-            transform: skewX(-5deg); /* Speedy look */
+            transform: skewX(-5deg);
         }
 
         /* Dynamic Diagonal Separators for Sections */
@@ -151,10 +150,8 @@
 
         .text-center { text-align: center; }
 
-        /* Tryouts Banner - High Octane */
-        .tryout-wrapper {
-            padding: 2rem 0;
-        }
+        /* Tryouts Banner */
+        .tryout-wrapper { padding: 2rem 0; }
         
         .tryout-banner {
             background: linear-gradient(135deg, #a62a50, #8C1D40 70%, #6f1632);
@@ -162,15 +159,13 @@
             border-radius: 4px;
             padding: 3.5rem 2rem;
             text-align: center;
-            transform: skewY(-2deg); /* Dynamic angle */
+            transform: skewY(-2deg);
             box-shadow: 12px 12px 0px rgba(255, 214, 77, 0.15);
             margin: 0 auto;
             max-width: 900px;
         }
 
-        .tryout-content {
-            transform: skewY(2deg); /* Un-skew the text so it's readable */
-        }
+        .tryout-content { transform: skewY(2deg); }
 
         .tryout-banner h3 {
             font-size: 2.5rem;
@@ -209,6 +204,21 @@
             background-color: #1a1a1a;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
+        
+        /* Spotlight Images inside Cards */
+        .spotlight-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 2px solid var(--maroon);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .card:hover .spotlight-img {
+            border-color: var(--bright-gold);
+            transform: scale(1.03);
+        }
 
         .card .role {
             color: var(--bright-gold);
@@ -226,7 +236,7 @@
             font-weight: bold;
         }
 
-        .card .phone {
+        .card .phone, .card .position {
             color: #aaa;
             text-decoration: none;
             font-size: 1.1rem;
@@ -234,9 +244,7 @@
             transition: color 0.2s ease;
         }
 
-        .card .phone:hover {
-            color: var(--bright-gold);
-        }
+        .card .phone:hover { color: var(--bright-gold); }
 
         /* Buttons */
         .btn-container {
@@ -277,10 +285,6 @@
             box-shadow: 6px 6px 0px var(--maroon);
         }
 
-        .btn-maroon:hover {
-            box-shadow: 6px 6px 0px rgba(255, 214, 77, 0.5);
-        }
-
         /* Footer */
         footer {
             background-color: var(--maroon);
@@ -302,7 +306,7 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="logo-container" data-aos="zoom-in" data-aos-duration="1000">
-            <img src="logo.png" alt="ASU Women's Club Soccer Logo">
+            <img src="logo.png" alt="ASU Women's Club Soccer Logo" class="logo">
         </div>
         <h1 data-aos="fade-up" data-aos-delay="150">Women's Club Soccer</h1>
         <p data-aos="fade-up" data-aos-delay="300">Arizona State University</p>
@@ -353,29 +357,77 @@
                 <h3>Trinity Romero</h3>
                 <a href="tel:5056997893" class="phone">📞 (505) 699-7893</a>
             </div>
-
             <div class="card" data-aos="fade-up" data-aos-delay="200">
                 <div class="role">Vice President</div>
                 <h3>Mia Rosta</h3>
                 <a href="tel:6025052365" class="phone">📞 (602) 505-2365</a>
             </div>
-
             <div class="card" data-aos="fade-up" data-aos-delay="300">
                 <div class="role">Finance</div>
                 <h3>Hannah Thebeau</h3>
                 <a href="tel:4194605098" class="phone">📞 (419) 460-5098</a>
             </div>
-
             <div class="card" data-aos="fade-up" data-aos-delay="400">
                 <div class="role">PR & Media</div>
                 <h3>Kaylee Gerardot</h3>
                 <a href="tel:2095076493" class="phone">📞 (209) 507-6493</a>
             </div>
-
             <div class="card" data-aos="fade-up" data-aos-delay="500">
                 <div class="role">Service</div>
                 <h3>Bree Sanderson</h3>
                 <a href="tel:9494624033" class="phone">📞 (949) 462-4033</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Senior Spotlight Section -->
+    <section id="spotlight">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">Senior Spotlight</h2>
+            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 3rem;">Honoring our recent graduates and their dedication to the club.</p>
+        </div>
+        <div class="grid">
+            <!-- Sydney Sventek -->
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <img src="sydney.jpg" alt="Sydney Sventek" class="spotlight-img">
+                <div class="role">Former President</div>
+                <h3>Sydney Sventek</h3>
+                <div class="position">Outside Forward</div>
+            </div>
+
+            <!-- Alexandria Koklys -->
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <img src="alexandria.jpg" alt="Alexandria Koklys" class="spotlight-img">
+                <div class="role">Midfield #33</div>
+                <h3>Alexandria Koklys</h3>
+            </div>
+
+            <!-- Delaney Wade -->
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <img src="delaney.jpg" alt="Delaney Wade" class="spotlight-img">
+                <div class="role">Goalkeeper</div>
+                <h3>Delaney Wade</h3>
+            </div>
+
+            <!-- Sami Battenfield -->
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <img src="sami.jpg" alt="Sami Battenfield" class="spotlight-img">
+                <div class="role">Center Forward</div>
+                <h3>Sami Battenfield</h3>
+            </div>
+
+            <!-- Aubriella Whisler -->
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <img src="aubriella.jpg" alt="Aubriella Whisler" class="spotlight-img">
+                <div class="role">Goalkeeper</div>
+                <h3>Aubriella Whisler</h3>
+            </div>
+            
+            <!-- Cassidy Howell -->
+            <div class="card" data-aos="fade-up" data-aos-delay="600">
+                <img src="cassidy.jpg" alt="Cassidy Howell" class="spotlight-img">
+                <div class="role">Center Back</div>
+                <h3>Cassidy Howell</h3>
             </div>
         </div>
     </section>
